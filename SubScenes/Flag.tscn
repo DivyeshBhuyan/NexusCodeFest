@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4byneulnu0dv"]
+
+[ext_resource type="Script" path="res://Scripts/flag.gd" id="1_o2mgd"]
+[ext_resource type="Texture2D" uid="uid://b0j78mtice6se" path="res://Assests/pixel-art-red-flag-with-pole_475147-215-removebg-preview.png" id="2_rrx82"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guadb"]
+size = Vector2(85.5, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iibeu"]
+size = Vector2(88.5, 99)
+
+[node name="Flag" type="RigidBody2D"]
+script = ExtResource("1_o2mgd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1105, 534)
+scale = Vector2(0.294088, 0.306112)
+texture = ExtResource("2_rrx82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1109.25, 528)
+shape = SubResource("RectangleShape2D_guadb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1107.75, 526.5)
+shape = SubResource("RectangleShape2D_iibeu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

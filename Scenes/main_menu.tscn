@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=3 uid="uid://b00ikj6i82wao"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_qe7c8"]
+[ext_resource type="Texture2D" uid="uid://2ndoxjomf8ba" path="res://Assests/Game Cover(Blurred).png" id="2_2dkpk"]
+[ext_resource type="FontFile" uid="uid://gmfwq4w07t3i" path="res://Assests/GrapeSoda.ttf" id="3_bd1fi"]
+[ext_resource type="AudioStream" uid="uid://du1eodakunya3" path="res://Assests/When-I-Was-A-Boy(chosic.com).wav" id="4_kqlc8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2lhqj"]
+texture = ExtResource("2_2dkpk")
+modulate_color = Color(0.332881, 0.332881, 0.332881, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gufyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r5i6"]
+bg_color = Color(0.568973, 0.568973, 0.568973, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uj7c"]
+bg_color = Color(0.412152, 0.412152, 0.412152, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3t84d"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 11
+
+[node name="Main-Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qe7c8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2lhqj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_right = 165.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_fonts/font = ExtResource("3_bd1fi")
+theme_override_font_sizes/font_size = 90
+text = "Adventures Of A Slug Man"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.0
+offset_top = -129.0
+offset_right = 243.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.00407789, 0.00123144, 0.000104522, 1)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gufyb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2r5i6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8uj7c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3t84d")
+text = "Start Game"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.00407789, 0.00123144, 0.000104522, 1)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gufyb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2r5i6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8uj7c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3t84d")
+text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(355, 385)
+stream = ExtResource("4_kqlc8")
+volume_db = -9.956
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_Exit__pressed"]

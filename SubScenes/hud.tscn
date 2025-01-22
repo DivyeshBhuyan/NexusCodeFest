@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb8s1q7giawj4"]
+
+[ext_resource type="Texture2D" uid="uid://bm4beeqahmg6a" path="res://Assests/heart.png" id="1_afbpu"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Hearts" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_bottom = 60.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hearts"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.147224, 0.115783)
+alignment = 1
+
+[node name="Heart" type="TextureRect" parent="Hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_afbpu")
+
+[node name="Heart2" type="TextureRect" parent="Hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_afbpu")
+
+[node name="Heart3" type="TextureRect" parent="Hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_afbpu")
